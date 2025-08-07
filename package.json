@@ -1,0 +1,49 @@
+{
+  "name": "sazonal-chef-3.0",
+  "version": "1.0.0",
+  "description": "Aplicativo inovador para receitas sazonais e planejamento alimentar inteligente",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "npm run build:client && npm run build:server",
+    "test": "jest",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "receitas",
+    "sazonal",
+    "culinaria",
+    "ai",
+    "supabase",
+    "nodejs",
+    "planejamento-alimentar"
+  ],
+  "author": "Aron Girardelli <arongirardelli@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arongirardelli/Sazonal-Chef-3.0.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arongirardelli/Sazonal-Chef-3.0/issues"
+  },
+  "homepage": "https://github.com/arongirardelli/Sazonal-Chef-3.0#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "jest": "^29.7.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}
