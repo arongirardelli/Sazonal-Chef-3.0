@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 31 23 10; /* #F5F0E5 - Bege Claro */
+    --foreground: 20 14 4;
+    --card: 31 23 10;
+    --card-foreground: 20 14 4;
+    --popover: 31 23 10;
+    --popover-foreground: 20 14 4;
+    --primary: 146 64 14; /* #2C5530 - Verde Escuro */
+    --primary-foreground: 31 23 10;
+    --secondary: 22 163 74; /* Verde mais claro para contraste */
+    --secondary-foreground: 31 23 10;
+    --muted: 28 20 8;
+    --muted-foreground: 20 14 4;
+    --accent: 22 78 99; /* #D35400 - Laranja Queimado */
+    --accent-foreground: 31 23 10;
+    --destructive: 0 84 60;
+    --destructive-foreground: 31 23 10;
+    --border: 28 20 8;
+    --input: 28 20 8;
+    --ring: 146 64 14;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14 4;
+    --foreground: 31 23 10;
+    --card: 20 14 4;
+    --card-foreground: 31 23 10;
+    --popover: 20 14 4;
+    --popover-foreground: 31 23 10;
+    --primary: 146 64 14;
+    --primary-foreground: 31 23 10;
+    --secondary: 28 20 8;
+    --secondary-foreground: 31 23 10;
+    --muted: 28 20 8;
+    --muted-foreground: 31 23 10;
+    --accent: 22 78 99;
+    --accent-foreground: 31 23 10;
+    --destructive: 0 62 30;
+    --destructive-foreground: 31 23 10;
+    --border: 28 20 8;
+    --input: 28 20 8;
+    --ring: 146 64 14;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-nunito;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

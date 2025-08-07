@@ -1,94 +1,69 @@
-# 🍽️ Sazonal Chef 3.0
+# React + TypeScript + Vite
 
-> Aplicativo inovador para receitas sazonais e planejamento alimentar inteligente
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🚀 Sobre o Projeto
+Currently, two official plugins are available:
 
-O Sazonal Chef 3.0 é uma aplicação moderna que combina inteligência artificial com culinária sazonal, oferecendo receitas personalizadas baseadas nos ingredientes da estação e preferências nutricionais do usuário.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🛠️ Tecnologias
+## Expanding the ESLint configuration
 
-### Backend & Database
-- **Supabase** - Banco de dados PostgreSQL com autenticação e API REST
-- **Project URL**: https://yspxyqrehhibogspctck.supabase.co
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-### AI & Automação
-- **MCP (Model Context Protocol)** - Integração com múltiplos serviços de IA
-- **Sequential Thinking AI** - Processamento avançado de receitas
-- **Browser Automation** - Automação de tarefas web
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-### Desenvolvimento
-- **Cursor IDE** - Editor com IA integrada
-- **GitHub** - Controle de versão e colaboração
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-## 🔧 Configuração do Ambiente
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-### Pré-requisitos
-- Node.js (versão 18+)
-- Git
-- Cursor IDE
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-### Instalação
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-1. **Clone o repositório**
-   ```bash
-   git clone https://github.com/arongirardelli/Sazonal-Chef-3.0.git
-   cd "Sazonal Chef 3.0"
-   ```
-
-2. **Configure o MCP**
-   - A configuração MCP já está incluída em `.cursor/mcp.json`
-   - Abra o projeto no Cursor
-   - Vá para Settings → MCP
-   - Verifique se todos os servidores estão ativos (status verde)
-
-3. **Instale dependências**
-   ```bash
-   npm install
-   ```
-
-## 📋 Serviços MCP Configurados
-
-### 🗄️ Supabase
-- **Funcionalidade**: Acesso ao banco de dados
-- **Status**: ✅ Ativo
-- **Modo**: Somente leitura (segurança)
-
-### 🌐 Browser Tools
-- **Funcionalidade**: Automação do navegador
-- **Status**: ⚠️ Requer servidor ativo
-- **Uso**: Scraping de receitas, testes automatizados
-
-### 🧠 Sequential Thinking
-- **Funcionalidade**: IA avançada para processamento
-- **Status**: ✅ Configurado
-- **Uso**: Análise nutricional, sugestões personalizadas
-
-## 🎯 Funcionalidades Planejadas
-
-- [ ] Sistema de autenticação de usuários
-- [ ] Catálogo de receitas sazonais
-- [ ] Planejador de refeições inteligente
-- [ ] Lista de compras automatizada
-- [ ] Análise nutricional avançada
-- [ ] Integração com calendário sazonal
-- [ ] Recomendações personalizadas por IA
-
-## 📚 Documentação
-
-- [Configuração MCP](./README-MCP.md) - Detalhes sobre servidores MCP
-- [Supabase Setup](https://supabase.com/docs) - Documentação oficial do Supabase
-
-## 👨‍💻 Desenvolvedor
-
-**Aron Girardelli**
-- GitHub: [@arongirardelli](https://github.com/arongirardelli)
-- Email: arongirardelli@gmail.com
-
-## 📄 Licença
-
-Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
-
-⭐ Se este projeto foi útil, considere dar uma estrela no repositório!
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
